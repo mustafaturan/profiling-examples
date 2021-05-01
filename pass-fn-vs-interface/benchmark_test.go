@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/mustafaturan/profiling-examples/passfnvsinterface"
+	passfnvsinterface "github.com/mustafaturan/profiling-examples/pass-fn-vs-interface"
 )
 
 type doer struct{}
@@ -23,6 +23,7 @@ func do(ctx context.Context, s string) error {
 }
 
 func BenchmarkPassFn(b *testing.B) {
+	b.ReportAllocs()
 	ctx := context.Background()
 
 	for i := 0; i < b.N; i++ {
@@ -31,6 +32,7 @@ func BenchmarkPassFn(b *testing.B) {
 }
 
 func BenchmarkPassLocalFn(b *testing.B) {
+	b.ReportAllocs()
 	ctx := context.Background()
 
 	d := func(ctx context.Context, s string) error {
@@ -43,6 +45,7 @@ func BenchmarkPassLocalFn(b *testing.B) {
 }
 
 func BenchmarkPassStructFn(b *testing.B) {
+	b.ReportAllocs()
 	ctx := context.Background()
 	d := doer{}
 
@@ -52,6 +55,7 @@ func BenchmarkPassStructFn(b *testing.B) {
 }
 
 func BenchmarkPassStructFnVar(b *testing.B) {
+	b.ReportAllocs()
 	ctx := context.Background()
 	d := doer{}.Do
 
@@ -61,6 +65,7 @@ func BenchmarkPassStructFnVar(b *testing.B) {
 }
 
 func BenchmarkPassIntefaceFn(b *testing.B) {
+	b.ReportAllocs()
 	ctx := context.Background()
 	d := &idoer{}
 
@@ -70,6 +75,7 @@ func BenchmarkPassIntefaceFn(b *testing.B) {
 }
 
 func BenchmarkPassIntefaceFnVar(b *testing.B) {
+	b.ReportAllocs()
 	ctx := context.Background()
 	d := &idoer{}
 	do := d.Do
@@ -80,6 +86,7 @@ func BenchmarkPassIntefaceFnVar(b *testing.B) {
 }
 
 func BenchmarkPassInterfaceStructDoer(b *testing.B) {
+	b.ReportAllocs()
 	ctx := context.Background()
 	d := doer{}
 
@@ -89,6 +96,7 @@ func BenchmarkPassInterfaceStructDoer(b *testing.B) {
 }
 
 func BenchmarkPassInterfaceDoer(b *testing.B) {
+	b.ReportAllocs()
 	ctx := context.Background()
 	d := &idoer{}
 

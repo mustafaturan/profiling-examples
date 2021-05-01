@@ -3,9 +3,9 @@ package towardstozeroallocation
 import (
 	"testing"
 
-	"github.com/mustafaturan/profiling-examples/towardstozeroallocation/version1"
-	"github.com/mustafaturan/profiling-examples/towardstozeroallocation/version2"
-	"github.com/mustafaturan/profiling-examples/towardstozeroallocation/version3"
+	"github.com/mustafaturan/profiling-examples/towards-to-zero-allocation/version1"
+	"github.com/mustafaturan/profiling-examples/towards-to-zero-allocation/version2"
+	"github.com/mustafaturan/profiling-examples/towards-to-zero-allocation/version3"
 )
 
 func BenchmarkV1Next(b *testing.B) {
