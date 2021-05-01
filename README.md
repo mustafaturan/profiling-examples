@@ -4,4 +4,4 @@ This project hosts examples for profiling, garbage collection, memory leaks, and
 
 
 * [Towards to zero-allocation](./towardstozeroallocation/README.md)
-
+* [Pass function vs pass interafce](./passfnvsinterface/README.md)
